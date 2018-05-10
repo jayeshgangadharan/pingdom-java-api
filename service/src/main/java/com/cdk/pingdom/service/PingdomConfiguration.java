@@ -25,7 +25,7 @@ public class PingdomConfiguration {
     @Value("${pingdom.application.key}")
     private String applicationKey;
 
-    @Value("${pingdom.url:https://api.pingdom.com/api/2.0}")
+    @Value("${pingdom.url:https://api.pingdom.com/api/2.1}")
     private String pingdomUrl;
 
     @Value("${pingdom.credentials}")

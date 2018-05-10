@@ -1,6 +1,6 @@
 # Pingdom Java API Wrapper
 
-## Support API's
+## Supported API's
 
 * Find all checks
 
@@ -14,4 +14,3 @@
     * pingdom.credentials (username:password)
     * pingdom.admin.user
 * add AlertService as a dependency and start using it
-    
