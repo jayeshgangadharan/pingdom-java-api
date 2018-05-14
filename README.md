@@ -6,7 +6,7 @@
 * Find Details of a check
 * add users to a check to notify
 
-## How to use the api's ?
+## How to use the wrapper ?
  
 * clone this project
 * add pingdom.properties to your classpath
@@ -14,7 +14,7 @@
     * pingdom.application.key
     * pingdom.url
     * pingdom.credentials (username:password)
-    * pingdom.admin.user
+    * pingdom.admin.user    
 * add AlertService as a dependency and start using it
 
 ## Pingdom API Version : 2.1
