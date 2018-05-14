@@ -24,9 +24,9 @@ public interface AlertService {
     public Check getCheckDetail(long checkId);
 
     /**
-     * add a new pingdom alert
+     * update user to a check for notifications
      * @param check
      */
-    public void addCheck(Check check);
+    public void addUserToCheck(Check check, Long... userids);
 
 }

@@ -7,6 +7,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
@@ -31,8 +32,16 @@ public class AlertServiceImpl implements AlertService {
     public Checks findAllChecks() {
         String url = getUrl() + ALL_CHECKS;
         ResponseEntity<Checks> response;
-        response = getRestTemplate().exchange(url, HttpMethod.GET, getHttpEntity(), Checks.class);
+
+        response = getResponse(url, HttpMethod.GET, Checks.class);
+
+        //response = getRestTemplate().exchange(url, HttpMethod.GET, getHttpEntity(), Checks.class);
         return response.getBody();
+    }
+
+    private <T> ResponseEntity<T> getResponse(String url, HttpMethod method, Class<T> responseType) {
+        ResponseEntity<T> response = getRestTemplate().exchange(url, HttpMethod.GET, getHttpEntity(), responseType);
+        return response;
     }
 
     public Check getCheckDetail(long checkId) {
@@ -47,7 +56,15 @@ public class AlertServiceImpl implements AlertService {
         return check;
     }
 
-    public void addCheck(Check check) {
+    public void addUserToCheck(Check check, Long... userids){
+        Assert.isNull(check, "check cannot be null");
+        Assert.isNull(check.getId(), "check-id cannot be null");
+        Assert.isNull(userids, "userids cannot be null");
+
+        String url = getUrl() + ALL_CHECKS + SLASH + check.getId();
+
+
+
 
     }
 

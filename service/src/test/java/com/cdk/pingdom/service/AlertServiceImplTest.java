@@ -27,9 +27,6 @@ public class AlertServiceImplTest {
     @Resource
     private AlertService alertService;
 
-    @Resource
-    private PingdomConfiguration pingdomConfiguration;
-
     @Before
     public void setup() {
 
@@ -45,7 +42,10 @@ public class AlertServiceImplTest {
     public void testGetCheckDetail() {
         Check check = alertService.getCheckDetail(1982245);
         assertNotNull(check);
+        assertNotNull(check.getId());
     }
+
+
 
 
     @Configuration

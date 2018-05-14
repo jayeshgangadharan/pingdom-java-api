@@ -1,5 +1,8 @@
 package com.cdk.pingdom.dto;
 
+
+import java.util.List;
+
 /**
  * Created by Jayesh on 5/10/18.
  */
@@ -7,7 +10,7 @@ public class Checks {
 
     private Counts counts;
 
-    private Checks[] checks;
+    private List<Check> checks;
 
     public Counts getCounts() {
         return counts;
@@ -17,16 +20,11 @@ public class Checks {
         this.counts = counts;
     }
 
-    public Checks[] getChecks() {
+    public List<Check> getChecks() {
         return checks;
     }
 
-    public void setChecks(Checks[] checks) {
+    public void setChecks(List<Check> checks) {
         this.checks = checks;
-    }
-
-    @Override
-    public String toString() {
-        return "ClassPojo [counts = " + counts + ", checks = " + checks + "]";
     }
 }

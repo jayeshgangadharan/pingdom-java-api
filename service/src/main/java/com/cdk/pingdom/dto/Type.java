@@ -7,6 +7,14 @@ public class Type {
 
     private Http http;
 
+    public Type() {
+
+    }
+
+    public Type(String value) {
+
+    }
+
     public Http getHttp() {
         return http;
     }
