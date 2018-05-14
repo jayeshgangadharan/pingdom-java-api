@@ -5,6 +5,7 @@
 * Find all checks
 * Find Details of a check
 * Add users to a check to notify
+* Bulk add - users to all checks. see #addUserToAllChecks in AlertServiceImplTest
 
 ## How to use the wrapper ?
  
