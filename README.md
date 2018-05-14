@@ -4,7 +4,7 @@
 
 * Find all checks
 * Find Details of a check
-* add users to a check to notify
+* Add users to a check to notify
 
 ## How to use the wrapper ?
  

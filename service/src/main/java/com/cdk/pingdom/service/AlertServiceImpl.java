@@ -75,16 +75,22 @@ public class AlertServiceImpl implements AlertService {
         if(existingIds != null && existingIds.contains(userids)) {
             LOGGER.info("User already added");
         } else {
-            if(existingIds == null) {
-                newIds = userids;
-            } else {
-                newIds = existingIds + COMMA + userids;
-            }
+            newIds = combineUserIds(userids, existingIds);
 
             url = url + USER_PARAM + newIds;
             LOGGER.info("adding users={} for checkId={}", newIds, checkId);
             getResponse(url, HttpMethod.PUT, Void.class);
         }
+    }
+
+    private String combineUserIds(String userids, String existingIds) {
+        String newIds;
+        if(existingIds == null) {
+            newIds = userids;
+        } else {
+            newIds = existingIds + COMMA + userids;
+        }
+        return newIds;
     }
 
     private <T> ResponseEntity<T> getResponse(String url, HttpMethod method, Class<T> responseType) throws Exception {
