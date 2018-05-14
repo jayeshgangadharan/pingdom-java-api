@@ -16,3 +16,7 @@
     * pingdom.credentials (username:password)
     * pingdom.admin.user
 * add AlertService as a dependency and start using it
+
+## Pingdom API Version : 2.1
+
+## Pingdom Resource - https://www.pingdom.com/resources/api/2.1
