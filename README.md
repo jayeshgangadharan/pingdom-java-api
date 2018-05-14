@@ -12,12 +12,18 @@
 * clone this project https://github.com/jayeshgangadharan/pingdom-java-api.git
 * add pingdom.properties to your classpath
 * add following entries into pingdom.properties
-    * pingdom.application.key
-    * pingdom.url
-    * pingdom.credentials (username:password)
-    * pingdom.admin.user    
 * add AlertService as a dependency and start using it
+>sample pingdom.properties
+```
+    pingdom.application.key=<YourApplicationKey>
+    pingdom.url=https://api.pingdom.com/api/2.1
+    pingdom.credentials=<username:password>
+    pingdom.admin.user=<YourAdminEmail>
+```        
 
 ## Pingdom API Version : 2.1
 
-## Pingdom Resource - https://www.pingdom.com/resources/api/2.1
+## Pingdom API Documentations
+```
+https://www.pingdom.com/resources/api/2.1
+```
