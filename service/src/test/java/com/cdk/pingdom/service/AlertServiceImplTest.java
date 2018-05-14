@@ -1,5 +1,6 @@
 package com.cdk.pingdom.service;
 
+import com.cdk.pingdom.dto.Check;
 import com.cdk.pingdom.dto.Checks;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,10 +36,17 @@ public class AlertServiceImplTest {
     }
 
     @Test
-    public void findAllChecks() {
+    public void testFindAllChecks() {
         Checks checks = alertService.findAllChecks();
         assertNotNull(checks);
     }
+
+    @Test
+    public void testGetCheckDetail() {
+        Check check = alertService.getCheckDetail(1982245);
+        assertNotNull(check);
+    }
+
 
     @Configuration
     public static class Config {

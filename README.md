@@ -3,6 +3,7 @@
 ## Supported API's
 
 * Find all checks
+* Find Details of a check
 
 ## How to use the api's ?
  

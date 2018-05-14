@@ -17,6 +17,13 @@ public interface AlertService {
     public Checks findAllChecks();
 
     /**
+     * Get Detail for a single check
+     * @param checkId
+     * @return
+     */
+    public Check getCheckDetail(long checkId);
+
+    /**
      * add a new pingdom alert
      * @param check
      */
