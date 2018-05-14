@@ -14,19 +14,20 @@ public interface AlertService {
      * Get all alerts from pingdom
      * @return
      */
-    public Checks findAllChecks();
+    public Checks findAllChecks() throws Exception;
 
     /**
      * Get Detail for a single check
      * @param checkId
      * @return
      */
-    public Check getCheckDetail(long checkId);
+    public Check getCheckDetail(Long checkId) throws Exception;
 
     /**
      * update user to a check for notifications
-     * @param check
+     * @param checkId
+     * @param userids (comma separated user-ids
      */
-    public void addUserToCheck(Check check, Long... userids);
+    public void addUserToCheck(Long checkId, String userids) throws Exception;
 
 }

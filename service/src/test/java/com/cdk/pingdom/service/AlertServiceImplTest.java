@@ -3,6 +3,7 @@ package com.cdk.pingdom.service;
 import com.cdk.pingdom.dto.Check;
 import com.cdk.pingdom.dto.Checks;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +25,9 @@ import static org.junit.Assert.assertNotNull;
 @TestPropertySource(locations = {"classpath:pingdom.properties"})
 public class AlertServiceImplTest {
 
+    public static final Long SOME_RANDOM_CHECKID = 12345L;
+    public static final String SOME_RANDOM_USERIDS = "12345";
+
     @Resource
     private AlertService alertService;
 
@@ -33,18 +37,34 @@ public class AlertServiceImplTest {
     }
 
     @Test
-    public void testFindAllChecks() {
+    public void testFindAllChecks() throws Exception {
         Checks checks = alertService.findAllChecks();
         assertNotNull(checks);
     }
 
     @Test
-    public void testGetCheckDetail() {
-        Check check = alertService.getCheckDetail(1982245);
+    public void testGetCheckDetail() throws Exception {
+        Check check = alertService.getCheckDetail(12345L);
         assertNotNull(check);
         assertNotNull(check.getId());
     }
 
+
+    @Test
+    public void testAddUserToCheck() throws Exception {
+        alertService.addUserToCheck(SOME_RANDOM_CHECKID, SOME_RANDOM_USERIDS);
+    }
+
+    @Test
+    @Ignore("Run on demand")
+    public void addUserToAllChecks() throws Exception {
+        Checks checks = alertService.findAllChecks();
+
+        for(Check check : checks.getChecks()) {
+            alertService.addUserToCheck(check.getId(), "12345L");
+        }
+
+    }
 
 
 

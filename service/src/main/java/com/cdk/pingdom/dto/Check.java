@@ -1,13 +1,14 @@
 package com.cdk.pingdom.dto;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Jayesh on 5/9/18.
  */
 public class Check {
 
-    private String[] tags;
+    private List<Tag> tags;
 
     private String ipv6;
 
@@ -23,11 +24,11 @@ public class Check {
 
     private String resolution;
 
-    private String[] userids;
+    private List<String> userids;
 
     private Type type;
 
-    private String id;
+    private Long id;
 
     private String lastresponsetime;
 
@@ -44,14 +45,6 @@ public class Check {
     private String name;
 
     private String lasttesttime;
-
-    public String[] getTags() {
-        return tags;
-    }
-
-    public void setTags(String[] tags) {
-        this.tags = tags;
-    }
 
     public String getIpv6() {
         return ipv6;
@@ -109,11 +102,11 @@ public class Check {
         this.resolution = resolution;
     }
 
-    public String[] getUserids() {
+    public List<String> getUserids() {
         return userids;
     }
 
-    public void setUserids(String[] userids) {
+    public void setUserids(List<String> userids) {
         this.userids = userids;
     }
 
@@ -125,11 +118,11 @@ public class Check {
         this.type = type;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -197,10 +190,17 @@ public class Check {
         this.lasttesttime = lasttesttime;
     }
 
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
     @Override
     public String toString() {
         return "Check{" +
-                "tags=" + Arrays.toString(tags) +
                 ", ipv6='" + ipv6 + '\'' +
                 ", responsetime_threshold='" + responsetime_threshold + '\'' +
                 ", status='" + status + '\'' +
@@ -208,7 +208,6 @@ public class Check {
                 ", hostname='" + hostname + '\'' +
                 ", integrationids=" + Arrays.toString(integrationids) +
                 ", resolution='" + resolution + '\'' +
-                ", userids=" + Arrays.toString(userids) +
                 ", type=" + type +
                 ", id='" + id + '\'' +
                 ", lastresponsetime='" + lastresponsetime + '\'' +
