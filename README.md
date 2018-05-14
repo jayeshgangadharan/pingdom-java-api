@@ -8,7 +8,7 @@
 
 ## How to use the wrapper ?
  
-* clone this project
+* clone this project https://github.com/jayeshgangadharan/pingdom-java-api.git
 * add pingdom.properties to your classpath
 * add following entries into pingdom.properties
     * pingdom.application.key
