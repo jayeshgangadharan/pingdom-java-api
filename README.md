@@ -21,7 +21,10 @@
     pingdom.admin.user=<YourAdminEmail>
 ```        
 
-## Pingdom API Version : 2.1
+## Pingdom API Version
+```
+2.1
+```
 
 ## Pingdom API Documentations
 ```
