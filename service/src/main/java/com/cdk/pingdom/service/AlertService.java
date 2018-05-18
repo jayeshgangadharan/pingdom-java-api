@@ -2,6 +2,7 @@ package com.cdk.pingdom.service;
 
 import com.cdk.pingdom.dto.Check;
 import com.cdk.pingdom.dto.Checks;
+import com.cdk.pingdom.dto.UserResponse;
 
 
 /**
@@ -29,5 +30,13 @@ public interface AlertService {
      * @param userids (comma separated user-ids
      */
     public void addUserToCheck(Long checkId, String userids) throws Exception;
+
+    /**
+     * create a new contact for sending alerts
+     * @param name
+     * @param email
+     * @throws Exception
+     */
+    public UserResponse addContact(String name, String email) throws Exception;
 
 }

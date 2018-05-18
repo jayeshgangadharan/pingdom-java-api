@@ -3,6 +3,7 @@ package com.cdk.pingdom.service;
 import com.cdk.pingdom.dto.Check;
 import com.cdk.pingdom.dto.CheckDetail;
 import com.cdk.pingdom.dto.Checks;
+import com.cdk.pingdom.dto.UserResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -26,6 +27,12 @@ public class AlertServiceImpl implements AlertService {
     public static final String ALL_CHECKS = "/checks";
     public static final String COMMA = ",";
     public static final String USER_PARAM = "?userids=";
+    public static final String USERS = "/users";
+    public static final String PARAMETER_SEPARATOR = "?";
+    public static final String NAME = "name";
+    public static final String EMAIL = "email";
+    public static final String EQUALS = "=";
+    public static final String PARAM_SEPARATOR = "&";
 
     private static Logger LOGGER = LoggerFactory.getLogger(AlertServiceImpl.class);
 
@@ -81,6 +88,29 @@ public class AlertServiceImpl implements AlertService {
             LOGGER.info("adding users={} for checkId={}", newIds, checkId);
             getResponse(url, HttpMethod.PUT, Void.class);
         }
+    }
+
+    public UserResponse addContact(String name, String email) throws Exception {
+        Assert.notNull(name, "name cannot be null");
+        Assert.notNull(email, "email cannot be null");
+
+        StringBuilder builder = new StringBuilder(getUrl());
+        builder.append(USERS);
+        builder.append(PARAMETER_SEPARATOR);
+        builder.append(NAME);
+        builder.append(EQUALS);
+        builder.append(name);
+        builder.append(PARAM_SEPARATOR);
+        builder.append(EMAIL);
+        builder.append(EQUALS);
+        builder.append(email);
+
+        String url = builder.toString();
+
+
+        UserResponse user = getResponse(url, HttpMethod.POST, UserResponse.class).getBody();
+        return user;
+
     }
 
     private String combineUserIds(String userids, String existingIds) {

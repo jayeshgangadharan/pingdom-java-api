@@ -2,6 +2,7 @@ package com.cdk.pingdom.service;
 
 import com.cdk.pingdom.dto.Check;
 import com.cdk.pingdom.dto.Checks;
+import com.cdk.pingdom.dto.UserResponse;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -57,16 +58,21 @@ public class AlertServiceImplTest {
 
     @Test
     @Ignore("Run on demand")
-    public void addUserToAllChecks() throws Exception {
+    public void testAddUserToAllChecks() throws Exception {
         Checks checks = alertService.findAllChecks();
-
         for(Check check : checks.getChecks()) {
             alertService.addUserToCheck(check.getId(), "12345L");
         }
-
     }
 
+    @Test
+    @Ignore("Run on demand")
+    public void testAddContact() throws Exception {
+        UserResponse userResponse = alertService.addContact("Jayesh", "Jayesh@cdk.com");
 
+        assertNotNull(userResponse);
+        assertNotNull(userResponse.getUser().getId());
+    }
 
     @Configuration
     public static class Config {
