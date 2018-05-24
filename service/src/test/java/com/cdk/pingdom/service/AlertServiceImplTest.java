@@ -1,12 +1,12 @@
 package com.cdk.pingdom.service;
 
-import com.cdk.pingdom.dto.Check;
-import com.cdk.pingdom.dto.Checks;
-import com.cdk.pingdom.dto.UserResponse;
+import com.cdk.pingdom.dto.*;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -29,6 +29,8 @@ public class AlertServiceImplTest {
     public static final Long SOME_RANDOM_CHECKID = 12345L;
     public static final String SOME_RANDOM_USERIDS = "12345";
 
+    public static Logger LOGGER = LoggerFactory.getLogger(AlertServiceImplTest.class);
+
     @Resource
     private AlertService alertService;
 
@@ -40,6 +42,10 @@ public class AlertServiceImplTest {
     @Test
     public void testFindAllChecks() throws Exception {
         Checks checks = alertService.findAllChecks();
+
+        for(Check check : checks.getChecks()) {
+            System.out.println(check.getId().toString()+","+check.getName());
+        }
         assertNotNull(checks);
     }
 
@@ -73,6 +79,17 @@ public class AlertServiceImplTest {
         assertNotNull(userResponse);
         assertNotNull(userResponse.getUser().getId());
     }
+
+    @Test
+    public void testFindAllUsers() throws Exception {
+        UserListResponse users = alertService.findAllUsers();
+
+        for(User user : users.getUsers()) {
+            System.out.println(user.getId().toString()+","+user.getName());
+        }
+        assertNotNull(users);
+    }
+
 
     @Configuration
     public static class Config {

@@ -2,6 +2,7 @@ package com.cdk.pingdom.service;
 
 import com.cdk.pingdom.dto.Check;
 import com.cdk.pingdom.dto.Checks;
+import com.cdk.pingdom.dto.UserListResponse;
 import com.cdk.pingdom.dto.UserResponse;
 
 
@@ -38,5 +39,12 @@ public interface AlertService {
      * @throws Exception
      */
     public UserResponse addContact(String name, String email) throws Exception;
+
+
+    /**
+     * find all users
+     * @return
+     */
+    public UserListResponse findAllUsers() throws Exception;
 
 }

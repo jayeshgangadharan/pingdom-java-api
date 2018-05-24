@@ -1,9 +1,6 @@
 package com.cdk.pingdom.service;
 
-import com.cdk.pingdom.dto.Check;
-import com.cdk.pingdom.dto.CheckDetail;
-import com.cdk.pingdom.dto.Checks;
-import com.cdk.pingdom.dto.UserResponse;
+import com.cdk.pingdom.dto.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -111,6 +108,12 @@ public class AlertServiceImpl implements AlertService {
         UserResponse user = getResponse(url, HttpMethod.POST, UserResponse.class).getBody();
         return user;
 
+    }
+
+    public UserListResponse findAllUsers() throws Exception {
+        String url = getUrl() + USERS;
+        UserListResponse userListResponse = getResponse(url, HttpMethod.GET, UserListResponse.class).getBody();
+        return userListResponse;
     }
 
     private String combineUserIds(String userids, String existingIds) {

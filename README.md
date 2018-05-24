@@ -7,6 +7,7 @@
 * Add users to a check to notify
 * Bulk add - users to all checks. see #addUserToAllChecks in AlertServiceImplTest
 * add new contacts for alerting
+* find all users
 
 ## How to use the wrapper ?
  
